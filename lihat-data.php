@@ -44,7 +44,7 @@
                             <td>
                                 
                                 <button class="btn btn-secondary"><a href="edit-mhs.php?nim=<?php echo $data["nim"] ?>" class="text-light">Edit</a></button>
-                                <button class="btn btn-danger"><a href=delete.php?nim=" . $data['nim'] .">Delete</a></button>
+                                <button class="btn btn-danger"><a href="delete.php?nim=<?php echo $data['nim'] ?>" class='text-light'>Delete</a></button>
                             </td>
                         </tr>
                     <?php }
@@ -58,6 +58,7 @@
         </table>
     </tbody>
     </table>
+    <button class="btn-secondary"><a href="input-data.php" class="text-light">back</a></button>
 </div>
 
 

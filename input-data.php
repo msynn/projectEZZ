@@ -16,7 +16,7 @@
     </style>
 </head>
 <body>
-    <center><h1>INPUT DATA PEMBELI</h1></center>
+    <center><h1>INPUT DATA PROGRAMER</h1></center>
 <table>
     <div class="row justify-content-center">
         <div class="col-md-4">

@@ -13,7 +13,7 @@
   if (mysqli_query($conn, $sql)) {
     echo "Data Berhasil disimpan!";
     echo "<br>";
-    echo "<a href='../input-pembeli.php'>Kembali</a>";
+    echo "<a href='../input-data.php'>Kembali</a>";
   }else{
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
