@@ -7,7 +7,7 @@
 	$wa 		= $_POST['wa'];
 
 	include 'koneksi.php';
-
+// Memasukkan nilai ke dalam Mysql
   $sql = "INSERT INTO data_mhs VALUES ('$id', '$nama', '$jurusan', '$email', '$wa')";
 
   if (mysqli_query($conn, $sql)) {

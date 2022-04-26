@@ -30,7 +30,7 @@
             <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan nama anda">
         </div>
         <div class="col-mb-3">
-            <label for="jurusan" class="form-label">Jurusan</label>
+            <label for="jurusan" class="col-sm-2 col-form-label">Jurusan</label>
             <input type="text" class="form-control" id="jurusan" aria-describedby="jurusan" name="jurusan" placeholder="Masukkan Jurusan Anda">
         </div>
         <div class="col-mb-3">

@@ -1,67 +1,37 @@
-<?php
-include('database/koneksi.php');
-$select = mysqli_query($conn, "SELECT * FROM data_mhs WHERE id = '" . $_GET['id'] . "'");
-$data = mysqli_fetch_array($select);
-?>
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html>
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <title>Belajar PHP Mysql</title>
+    <title>belajar</title>
 </head>
+<body>
+    <?php 
+    include 'database/koneksi.php';
+    $query = "SELECT * FROM data_mhs WHERE id =". $_GET['id'];
+    $result = mysqli_query($conn, $query);
+    if (mysqli_num_rows($result) > 0) {
+        while ($data = mysqli_fetch_assoc($result)) { ?>
 
-<body class="">
-    <div class="container">
-        <div class="row justify-content-center mt-4">
-            <div class="col-lg-5 col-md-6 col-sm-6">
-
-                <form action="lihat-data.php" method="post" class="position-relative form-control border border-danger mt-3 p-5">
-                    <h2 class="alert alert-primary text-center">Update Data Mahasiswa</h2>
-
-                    <div class="mb-3">
-                        <label for="nama" class="form-label">Nama</label>
-                        <input value="<?php echo $data['nama']  ?>" type="text" name="nama" class="form-control border-primary" id="nama" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="jurusan" class="form-label">Jurusan</label>
-                        <input value="<?php echo $data['jurusan']  ?>" type="text" name="jurusan" class="form-control border-primary" id="jurusan" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input value="<?php echo $data['email']  ?>" type="text" name="email" class="form-control border-primary" id="email" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="wa" class="form-label">nomor HP/WA</label>
-                        <input value="<?php echo $data['wa']  ?>" type="text" name="wa" class="form-control border-primary" id="wa" required>
-                    </div>
-                    <button name="update" type="submit" class="btn btn-primary mt-3">Save Data</button>
-                </form>
-                <?php
-                if (isset($_POST['update'])) {
-                    $update = mysqli_query($conn, "UPDATE data_mhs SET id = '" . $_GET['id'] . "', nama = '" . $_POST['nama'] . "', jurusan = '" . $_POST['jurusan'] . "', email = '" . $_POST['email'] . "', wa = '" . $_POST['wa'] . "'");
-                }
-
-                ?>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
+            <form action="database/proses-update.php" method="POST">
+                <p>Masukkan data baru :</p>
+                <label>ID card</label>
+                <input type="text" name="id" value="<?php echo $data['id']; ?> hidden='True'">
+                <br><br>
+                <label>Nama</label>
+                <input type="text" name="nama" value="<?php echo ($data['nama']); ?>">
+                <br><br>
+                <label>Jurusan</label>
+                <input type="text" name="jurusan" value="<?php echo ($data['jurusan']); ?>">
+                <br><br>
+                <label>Email</label>
+                <input type="text" name="email" value="<?php echo ($data['email']); ?>">
+                <label>WA</label>
+                <input type="text" name="wa" value="<?php echo ($data['wa']); ?>">
+            <?php}
+        }?>
+            <br><br>
+        <input type="submit" name="simpan" value="simpan">
+    </form>  
 </body>
-
 </html>
