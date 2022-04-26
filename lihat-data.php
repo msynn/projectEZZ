@@ -44,7 +44,7 @@
                             <td>
                                 
                                 <button class="btn btn-secondary"><a href="edit-mhs.php?nim=<?php echo $data["nim"] ?>" class="text-light">Edit</a></button>
-                                <button class="btn btn-danger"><a href="delete.php" class="text-light">Delete</a></button>
+                                <button class="btn btn-danger"><a href=delete.php?nim=" . $data['nim'] .">Delete</a></button>
                             </td>
                         </tr>
                     <?php }
