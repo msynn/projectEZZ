@@ -1,6 +1,6 @@
 <?php 
 
-	$nim		= $_POST['nim'];
+	$id			= $_POST['id'];
 	$nama 		= $_POST['nama'];
 	$jurusan	= $_POST['jurusan'];
 	$email 		= $_POST['email'];
@@ -8,7 +8,7 @@
 
 	include 'koneksi.php';
 
-  $sql = "INSERT INTO data_mhs VALUES ('$nim', '$nama', '$jurusan', '$email', '$wa')";
+  $sql = "INSERT INTO data_mhs VALUES ('$id', '$nama', '$jurusan', '$email', '$wa')";
 
   if (mysqli_query($conn, $sql)) {
     echo "Data Berhasil disimpan!";

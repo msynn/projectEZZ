@@ -1,6 +1,6 @@
 <?php
 include('database/koneksi.php');
-$select = mysqli_query($conn, "SELECT * FROM data_mhs WHERE nim = '" . $_GET['nim'] . "'");
+$select = mysqli_query($conn, "SELECT * FROM data_mhs WHERE id = '" . $_GET['id'] . "'");
 $data = mysqli_fetch_array($select);
 ?>
 <!doctype html>
@@ -22,34 +22,30 @@ $data = mysqli_fetch_array($select);
         <div class="row justify-content-center mt-4">
             <div class="col-lg-5 col-md-6 col-sm-6">
 
-                <form action="" method="post" class="position-relative form-control border border-danger mt-3 p-5">
+                <form action="lihat-data.php" method="post" class="position-relative form-control border border-danger mt-3 p-5">
                     <h2 class="alert alert-primary text-center">Update Data Mahasiswa</h2>
 
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Nama</label>
-                        <input value="<?php echo $data['nama']  ?>" type="text" name="nama" class="form-control border-primary" id="exampleInputPassword1" required>
+                        <label for="nama" class="form-label">Nama</label>
+                        <input value="<?php echo $data['nama']  ?>" type="text" name="nama" class="form-control border-primary" id="nama" required>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Jurusan</label>
-                        <input value="<?php echo $data['jurusan']  ?>" type="text" name="jurusan" class="form-control border-primary" id="exampleInputPassword1" required>
+                        <label for="jurusan" class="form-label">Jurusan</label>
+                        <input value="<?php echo $data['jurusan']  ?>" type="text" name="jurusan" class="form-control border-primary" id="jurusan" required>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Angkatan</label>
-                        <input value="<?php echo $data['email']  ?>" type="text" name="email" class="form-control border-primary" id="exampleInputPassword1" required>
+                        <label for="email" class="form-label">Email</label>
+                        <input value="<?php echo $data['email']  ?>" type="text" name="email" class="form-control border-primary" id="email" required>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">nomor HP/WA</label>
-                        <input value="<?php echo $data['wa']  ?>" type="text" name="wa" class="form-control border-primary" id="exampleInputPassword1" required>
+                        <label for="wa" class="form-label">nomor HP/WA</label>
+                        <input value="<?php echo $data['wa']  ?>" type="text" name="wa" class="form-control border-primary" id="wa" required>
                     </div>
                     <button name="update" type="submit" class="btn btn-primary mt-3">Save Data</button>
                 </form>
                 <?php
                 if (isset($_POST['update'])) {
-                    $update = mysqli_query($conn, "UPDATE data_mhs SET nim = '" . $_GET['nim'] . "', nama = '" . $_POST['nama'] . "', jurusan = '" . $_POST['jurusan'] . "', email = '" . $_POST['email'] . "', wa = '" . $_POST['wa'] . "'");
-                    echo ("<script>
-    alert('Data Berhasil Di Update');
-    window.location = 'index.php';
-    </script>");
+                    $update = mysqli_query($conn, "UPDATE data_mhs SET id = '" . $_GET['id'] . "', nama = '" . $_POST['nama'] . "', jurusan = '" . $_POST['jurusan'] . "', email = '" . $_POST['email'] . "', wa = '" . $_POST['wa'] . "'");
                 }
 
                 ?>

@@ -11,15 +11,15 @@
     <title>Data</title>
   </head>
   <body>
-    <div class="container col-md-10">
-        <div class="card-header bg-dark text-white text-center mb-2">
+    <div class="container col-md-10 mx-auto">
+        <div class="card-header bg-dark text-white text-center mb-2 mx-auto">
             <h3>Universitas Programing Majene</h3> <h5>Data Mahasiswa</h5>
         </div>
 
         <table class="table table-bordered border-dark">
     <thead>
         <tr class="table-dark tabel-bordered border-dark table-striped">
-        <th scope="col">Nim</th>
+        <th scope="col">ID card</th>
         <th scope="col">Nama</th>
         <th scope="col">Jurusan</th>
         <th scope="col">Email</th>
@@ -36,15 +36,15 @@
                 if (mysqli_num_rows($result) > 0){
                     while($data = mysqli_fetch_assoc($result)) {?>
                         <tr>
-                            <td><?php echo $data["nim"]?></td>
+                            <td><?php echo $data["id"]?></td>
                             <td><?php echo $data["nama"]?></td>
                             <td><?php echo $data["jurusan"]?></td>
                             <td><?php echo $data["email"]?></td>
                             <td><?php echo $data["wa"]?></td>
                             <td>
                                 
-                                <button class="btn btn-secondary"><a href="update.php?nim=<?php echo $data["nim"] ?>" class="text-light">Edit</a></button>
-                                <button class="btn btn-danger"><a href="delete.php?nim=<?php echo $data['nim'] ?>" class='text-light'>Delete</a></button>
+                                <button class="btn btn-secondary"><a href="update.php?id=<?php echo $data["id"] ?>" class="text-light">Edit</a></button>
+                                <button class="btn btn-danger"><a href="delete.php?id=<?php echo $data['id'] ?>" class='text-light'>Delete</a></button>
                             </td>
                         </tr>
                     <?php }

@@ -22,8 +22,8 @@
         <div class="col-md-4">
     <form action="database/proses_simpan.php" method="POST">
         <div class="col-mb-3">
-            <label for="nim" class="form-label">Nim</label>
-            <input type="text" class="form-control" name="nim" id="nim" aria-describedby="nim" placeholder="Masukkan nim anda">
+            <label for="id" class="form-label">ID card</label>
+            <input type="text" class="form-control" name="id" id="id" aria-describedby="id" placeholder="Masukkan id anda">
         </div>
         <div class="col-mb-3">
             <label for="nama" class="form-label">Nama</label>

@@ -1,19 +1,11 @@
-<?php 
+<?php
 
-    include 'database/koneksi.php';
-    $nim = $_GET['updatenim'];
-    $sql = "SELECT * FROM `data_mhs` WHERE nim = $nim"
+include('database/koneksi.php');
+$select = mysqli_query($conn, "SELECT * FROM data_mhs WHERE id = '" . $_GET['id'] . "'");
+$data = mysqli_fetch_array($select);
+?>
+<?php
+if (isset($_POST['update'])) {
+    $update = mysqli_query($conn, "UPDATE data_mhs SET id = '" . $_GET['id'] . "', nama = '" . $_POST['nama'] . "', jurusan = '" . $_POST['jurusan'] . "', email = '" . $_POST['email'] . "', wa = '" . $_POST['wa'] . "' WHERE 1");
 
-    if (isset($_POST['submit'])) {
-        $nama = $_POST['nama'];
-        $jurusan = $_POST['jurusan'];
-        $email = $_POST['email'];
-        $wa = $_POST['wa'];
-
-        $sql = "UPDATE `data_mhs` SET `nim`=$nim,`nama`='$nama',`jurusan`='$jurusan',`email`='$email',`wa`='$wa' WHERE nim = $nim";
-        $result = mysqli_query($conn,$sql);
-        if ($result) {
-            echo "Update Succesfully";
-        }
-    }
 ?>
