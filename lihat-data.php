@@ -43,7 +43,7 @@
                             <td><?php echo $data["wa"]?></td>
                             <td>
                                 
-                                <button class="btn btn-secondary"><a href="edit-mhs.php?nim=<?php echo $data["nim"] ?>" class="text-light">Edit</a></button>
+                                <button class="btn btn-secondary"><a href="edit.php?updatenim=<?php echo $data["nim"] ?>" class="text-light">Edit</a></button>
                                 <button class="btn btn-danger"><a href="delete.php?nim=<?php echo $data['nim'] ?>" class='text-light'>Delete</a></button>
                             </td>
                         </tr>
